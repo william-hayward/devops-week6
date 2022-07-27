@@ -12,7 +12,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <Link href="/about"> About</Link>
-        <h1 className={styles.title}>Welcome to Solent's Room Finder</h1>
+        <h1 className={styles.title}>Welcome to Solent&apos;s Room Finder</h1>
       </main>
     </div>
   );
