@@ -42,8 +42,8 @@ export default function about() {
           </div>
           <Section>
             <h3> Building</h3>
-            {buildings.map((b) => (
-              <div className="flex space-x-2">
+            {buildings.map((b, i) => (
+              <div key={i} className="flex space-x-2">
                 <input
                   {...register("building")}
                   type="checkbox"
@@ -58,8 +58,8 @@ export default function about() {
           </Section>
           <Section>
             <h3> Type</h3>
-            {roomTypes.map((r) => (
-              <div className="flex space-x-2">
+            {roomTypes.map((r, i) => (
+              <div kye={i} className="flex space-x-2">
                 <input
                   {...register("type")}
                   type="checkbox"
