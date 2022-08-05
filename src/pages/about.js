@@ -8,7 +8,6 @@ export default function about() {
         <meta name="description" content="Home" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-   </div>
+    </div>
   );
 }

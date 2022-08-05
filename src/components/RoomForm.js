@@ -1,10 +1,6 @@
-import Modal from "react-modal";
-Modal.setAppElement("#__next");
+import { CloudUploadIcon } from "@heroicons/react/outline";
+export default function RoomForm(props) {
 
-export function roomForm(props) {
-
-
-	
   const customStyles = {
     content: {
       top: "50%",
@@ -17,15 +13,17 @@ export function roomForm(props) {
   };
   const { onSubmit, modalIsOpen } = props;
   return (
-    <Modal isOpen={modalIsOpen} style={customStyles}>
+    <>
+
       <div className="flex flex-col align-middle  space-y-2">
         <h3 className="text-lg text-center mb-2"> Add A Room</h3>
-        <div className="flex justify-center w-full">
-          <Button>
-            <UploadIcon className="h-5 w-5" />
-            <h3 className="text-sm"> Upload Image</h3>
-          </Button>
-        </div>
+        <a
+
+          className="gray-outline-button"
+        >
+
+          <CloudUploadIcon className="h-5 w-5" /> Add Room Photos
+        </a>
         <label className="font-semibold"> Building</label>
         <select className="border-2 rounded-md p-2 text-gray-400">
           <option> Building </option>
@@ -38,8 +36,22 @@ export function roomForm(props) {
           placeholder="Room Number"
         />
         <label className="font-semibold"> Capacity </label>
+        <input
+          className="border-2 rounded-md p-2"
+          type="number"
+          placeholder="Capacity"
+        />
+
       </div>
-      <div className="flex justify-center w-full"></div>
-    </Modal>
-  );
+      <div className="flex justify-center w-full mt-3">
+        <div>
+          <button
+            className="blue-button_no-icon "
+          >
+            Add Room
+          </button>
+        </div>
+
+      </div>
+    </>)
 }

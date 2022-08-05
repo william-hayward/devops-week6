@@ -1,15 +1,17 @@
 import {
   ChevronLeftIcon,
-  ChevronRightIcon,
-  PlusIcon,
+  ChevronRightIcon, PlusIcon, XCircleIcon
 } from "@heroicons/react/outline";
 import Head from "next/head";
-import Button from "../components/Button";
+import { useState } from "react";
+import Modal from "react-modal";
 import Filter from "../components/Filter";
+import RoomForm from "../components/RoomForm";
 import { rooms } from "../mocks/data";
 
 export default function Home() {
-  const customStyles = {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const modalStyles = {
     content: {
       top: "50%",
       left: "50%",
@@ -30,14 +32,16 @@ export default function Home() {
       <Filter />
       <div className="min-w-full pr-20">
         <div className="max-w-[80%] mx-auto mt-11">
-          <Button
-            onClick={() => {
-              debugger;
-              setModalIsOpen(true);
-            }}
-          >
-            <PlusIcon className="h-5 w-5" /> Add Room
-          </Button>
+
+          <div>
+            <a
+              onClick={() => setModalIsOpen(true)}
+              className="blue-button"
+            >
+
+              <PlusIcon className="h-5 w-5" /> Add Room
+            </a>
+          </div>
           <div className="bg-white mx-auto mt-11 p-5 rounded-lg shadow-md">
             <table className="min-w-full">
               <thead>
@@ -51,8 +55,8 @@ export default function Home() {
               <tbody>
                 {rooms.map((r, i) => (
                   <tr
-                    ky={r.code}
-                    className={(i + 1) % 2 === 0 && "bg-gray-100"}
+                    key={r.code}
+                    className={(i + 1) % 2 === 0 ? "bg-gray-100" : ""}
                   >
                     <td className="p-2 text-blue rounded-l-lg">
                       <a className="cursor-pointer font-semibold">{r.number}</a>
@@ -87,6 +91,12 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={modalStyles}>
+        <div className="flex justify-end">
+          <XCircleIcon className="h-6 w-6 cursor-pointer hover:bg-slate-400 rounded" onClick={() => setModalIsOpen(false)} />
+        </div>
+        <RoomForm />
+      </Modal>
     </div>
   );
 }
