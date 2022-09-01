@@ -10,7 +10,7 @@ const Section = ({ children }) => (
   </div>
 );
 
-export default function about() {
+export default function About() {
   const [capacity, setCapacity] = useState(1);
   const [type, setType] = useState([]);
   const [building, setBuilding] = useState([]);
@@ -59,7 +59,7 @@ export default function about() {
           <Section>
             <h3> Type</h3>
             {roomTypes.map((r, i) => (
-              <div kye={i} className="flex space-x-2">
+              <div key={i} className="flex space-x-2">
                 <input
                   {...register("type")}
                   type="checkbox"
