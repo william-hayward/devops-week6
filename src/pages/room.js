@@ -5,13 +5,13 @@ import Link from "next/link";
 export default function room() {
 	return (
 		<div className="max-w-[80%] mx-auto mt-11">
-			<div className="bg-white mx-auto mt-11 p-2 rounded-lg shadow-md w-full flex">
+			<div className="bg-white  mt-11 p-2 rounded-lg shadow-md flex">
 				<HomeIcon className="h-7 w-7" />
-				<Link href="/"><a className=" cursor-pointer font-semibold text-blue mt-1 ml-1"> Home </a></Link>
+				<Link href="/"><a className=" cursor-pointer font-semibold  mt-1 ml-1"> Home </a></Link>
 				<ChevronRightIcon className="h-5 w-5 mt-2 ml-1" />
 				<p className="font-semibold mt-1" > RM505</p>
 			</div>
-			<div className="bg-white mx-auto mt-5 p-5 rounded-lg shadow-md w-full flex justify-around">
+			<div className="bg-white mt-5 p-5 rounded-lg shadow-md w-full flex">
 				<div>
 					<Image src="/img/room.png" width={718} height={642} alt="room picture" />
 				</div>
