@@ -2,7 +2,7 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import Link from "next/link";
-export default function room() {
+export default function Room() {
 	return (
 		<div className="max-w-[80%] mx-auto mt-11">
 			<div className="bg-white  mt-11 p-2 rounded-lg shadow-md flex">

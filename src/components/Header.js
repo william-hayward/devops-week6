@@ -1,7 +1,8 @@
 import { LoginIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import Link from "next/link";
-export default function header() {
+
+export default function Header() {
   return (
     <div className="max-w-full relative">
       <nav className="p-5 bg-white flex justify-between border-b-2 border-light-gray fixed top-0 left-0 right-0">

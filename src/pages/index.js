@@ -55,7 +55,7 @@ export default function Home() {
               <tbody>
                 {rooms.map((r, i) => (
                   <tr
-                    key={r.code}
+                    key={r.id}
                     className={(i + 1) % 2 === 0 ? "bg-gray-100" : ""}
                   >
                     <td className="p-2 text-blue rounded-l-lg">

@@ -34,36 +34,44 @@ export const roomTypes = [
 
 export const rooms = [
   {
+    id: 1,
     number: "HC208",
     building: "HC",
     capacity: 25,
     type: { code: "pc", name: "PC Lab" },
   },
   {
+
+    id: 2,
     number: "HC208",
     building: "HC",
     capacity: 25,
     type: { code: "pc", name: "PC Lab" },
   },
   {
+    id: 3,
     number: "HC208",
     building: "HC",
     capacity: 25,
     type: { code: "pc", name: "PC Lab" },
   },
   {
+
+    id: 4,
     number: "HC208",
     building: "HC",
     capacity: 25,
     type: { code: "pc", name: "PC Lab" },
   },
   {
+    id: 5,
     number: "HC208",
     building: "HC",
     capacity: 25,
     type: { code: "pc", name: "PC Lab" },
   },
   {
+    id: 6,
     number: "HC208",
     building: "HC",
     capacity: 25,

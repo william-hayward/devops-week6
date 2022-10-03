@@ -1,6 +1,5 @@
 import Slider from "rc-slider";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 import { buildings, roomTypes } from "../mocks/data";
 const Section = ({ children }) => (
   <div className="pt-3">
@@ -10,20 +9,17 @@ const Section = ({ children }) => (
   </div>
 );
 
-export default function About() {
+export default function Filter() {
   const [capacity, setCapacity] = useState(1);
-  const [type, setType] = useState([]);
-  const [building, setBuilding] = useState([]);
 
-  const { register, formState, reset } = useForm();
   const handleReset = () => {
-    reset();
+    document.getElementById("form").reset();
     setCapacity(1);
   };
 
   return (
     <div>
-      <form>
+      <form id="form">
         <div className="container min-h-screen bg-white border-r-2 border-light-gray   w-64">
           <div className="pt-6">
             <div className="flex justify-between border-b-3 pr-1 pl-1 pb-3 border-b-2 border-light-gray">
@@ -45,7 +41,6 @@ export default function About() {
             {buildings.map((b, i) => (
               <div key={i} className="flex space-x-2">
                 <input
-                  {...register("building")}
                   type="checkbox"
                   value={b.code}
                   name="building"
@@ -61,7 +56,7 @@ export default function About() {
             {roomTypes.map((r, i) => (
               <div key={i} className="flex space-x-2">
                 <input
-                  {...register("type")}
+                  onChange={e => console.log(e.target.value)}
                   type="checkbox"
                   value={r.code}
                   name="type"
