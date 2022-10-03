@@ -11,6 +11,13 @@ import { rooms } from "../mocks/data";
 
 export default function Home() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [capacity, setCapacity] = useState(1);
+  const [building, setBuilding] = useState("");
+  const [type, setType] = useState("");
+
+  const handleSlide = (n) => setCapacity(n);
+  const handleReset = () => setCapacity(1);
+
   const modalStyles = {
     content: {
       top: "50%",
@@ -29,7 +36,7 @@ export default function Home() {
         <meta name="description" content="Home" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Filter />
+      <Filter capacity={capacity} onSlide={handleSlide} onReset={handleReset} />
       <div className="min-w-full pr-20">
         <div className="max-w-[80%] mx-auto mt-11">
 
@@ -53,7 +60,7 @@ export default function Home() {
                 </tr>
               </thead>
               <tbody>
-                {rooms.map((r, i) => (
+                {rooms.filter(r => r.capacity >= capacity).map((r, i) => (
                   <tr
                     key={r.id}
                     className={(i + 1) % 2 === 0 ? "bg-gray-100" : ""}

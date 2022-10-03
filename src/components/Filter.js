@@ -1,5 +1,6 @@
 import Slider from "rc-slider";
-import { useState } from "react";
+
+
 import { buildings, roomTypes } from "../mocks/data";
 const Section = ({ children }) => (
   <div className="pt-3">
@@ -9,12 +10,15 @@ const Section = ({ children }) => (
   </div>
 );
 
-export default function Filter() {
-  const [capacity, setCapacity] = useState(1);
+export default function Filter(props) {
+
+
+
+  const { capacity, onSlide, onReset, onClickType, onClickBuilding } = props;
 
   const handleReset = () => {
     document.getElementById("form").reset();
-    setCapacity(1);
+    onReset();
   };
 
   return (
@@ -56,7 +60,6 @@ export default function Filter() {
             {roomTypes.map((r, i) => (
               <div key={i} className="flex space-x-2">
                 <input
-                  onChange={e => console.log(e.target.value)}
                   type="checkbox"
                   value={r.code}
                   name="type"
@@ -70,7 +73,7 @@ export default function Filter() {
             <div className="flex p-3 space-x-1">
               <div className="min-w-[95%] pt-2">
                 <Slider
-                  onChange={(n) => setCapacity(n)}
+                  onChange={n => onSlide(n)}
                   value={capacity}
                   min={1}
                   max={30}

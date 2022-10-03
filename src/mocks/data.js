@@ -37,7 +37,7 @@ export const rooms = [
     id: 1,
     number: "HC208",
     building: "HC",
-    capacity: 25,
+    capacity: 10,
     type: { code: "pc", name: "PC Lab" },
   },
   {
@@ -52,7 +52,7 @@ export const rooms = [
     id: 3,
     number: "HC208",
     building: "HC",
-    capacity: 25,
+    capacity: 15,
     type: { code: "pc", name: "PC Lab" },
   },
   {
@@ -67,7 +67,7 @@ export const rooms = [
     id: 5,
     number: "HC208",
     building: "HC",
-    capacity: 25,
+    capacity: 13,
     type: { code: "pc", name: "PC Lab" },
   },
   {
