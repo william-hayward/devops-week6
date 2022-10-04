@@ -1,6 +1,8 @@
 import {
   ChevronLeftIcon,
-  ChevronRightIcon, PlusIcon, XCircleIcon
+  ChevronRightIcon,
+  PlusIcon,
+  XCircleIcon,
 } from "@heroicons/react/outline";
 import Head from "next/head";
 import { useState } from "react";
@@ -12,8 +14,6 @@ import { rooms } from "../mocks/data";
 export default function Home() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [capacity, setCapacity] = useState(1);
-  const [building, setBuilding] = useState("");
-  const [type, setType] = useState("");
 
   const handleSlide = (n) => setCapacity(n);
   const handleReset = () => setCapacity(1);
@@ -39,13 +39,8 @@ export default function Home() {
       <Filter capacity={capacity} onSlide={handleSlide} onReset={handleReset} />
       <div className="min-w-full pr-20">
         <div className="max-w-[80%] mx-auto mt-11">
-
           <div>
-            <a
-              onClick={() => setModalIsOpen(true)}
-              className="blue-button"
-            >
-
+            <a onClick={() => setModalIsOpen(true)} className="blue-button">
               <PlusIcon className="h-5 w-5" /> Add Room
             </a>
           </div>
@@ -60,19 +55,23 @@ export default function Home() {
                 </tr>
               </thead>
               <tbody>
-                {rooms.filter(r => r.capacity >= capacity).map((r, i) => (
-                  <tr
-                    key={r.id}
-                    className={(i + 1) % 2 === 0 ? "bg-gray-100" : ""}
-                  >
-                    <td className="p-2 text-blue rounded-l-lg">
-                      <a className="cursor-pointer font-semibold">{r.number}</a>
-                    </td>
-                    <td> {r.building}</td>
-                    <td> {r.capacity}</td>
-                    <td className="rounded-r-lg"> {r.type.name}</td>
-                  </tr>
-                ))}
+                {rooms
+                  .filter((r) => r.capacity >= capacity)
+                  .map((r, i) => (
+                    <tr
+                      key={r.id}
+                      className={(i + 1) % 2 === 0 ? "bg-gray-100" : ""}
+                    >
+                      <td className="p-2 text-blue rounded-l-lg">
+                        <a className="cursor-pointer font-semibold">
+                          {r.number}
+                        </a>
+                      </td>
+                      <td> {r.building}</td>
+                      <td> {r.capacity}</td>
+                      <td className="rounded-r-lg"> {r.type.name}</td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
             <div className="mt-6 flex justify-between">
@@ -98,9 +97,16 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={modalStyles}>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+        style={modalStyles}
+      >
         <div className="flex justify-end">
-          <XCircleIcon className="h-6 w-6 cursor-pointer hover:bg-slate-400 rounded" onClick={() => setModalIsOpen(false)} />
+          <XCircleIcon
+            className="h-6 w-6 cursor-pointer hover:bg-slate-400 rounded"
+            onClick={() => setModalIsOpen(false)}
+          />
         </div>
         <RoomForm />
       </Modal>

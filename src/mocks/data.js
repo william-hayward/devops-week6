@@ -41,7 +41,6 @@ export const rooms = [
     type: { code: "pc", name: "PC Lab" },
   },
   {
-
     id: 2,
     number: "HC208",
     building: "HC",
@@ -56,7 +55,6 @@ export const rooms = [
     type: { code: "pc", name: "PC Lab" },
   },
   {
-
     id: 4,
     number: "HC208",
     building: "HC",

@@ -1,29 +1,11 @@
 import { CloudUploadIcon } from "@heroicons/react/outline";
 
-
-export default function RoomForm(props) {
-
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-    },
-  };
-  const { onSubmit, modalIsOpen } = props;
+export default function RoomForm() {
   return (
     <>
-
       <div className="flex flex-col align-middle  space-y-2">
         <h3 className="text-lg text-center mb-2"> Add A Room</h3>
-        <a
-
-          className="gray-outline-button"
-        >
-
+        <a className="gray-outline-button">
           <CloudUploadIcon className="h-5 w-5" /> Add Room Photos
         </a>
         <label className="font-semibold"> Building</label>
@@ -43,17 +25,12 @@ export default function RoomForm(props) {
           type="number"
           placeholder="Capacity"
         />
-
       </div>
       <div className="flex justify-center w-full mt-3">
         <div>
-          <button
-            className="blue-button_no-icon "
-          >
-            Add Room
-          </button>
+          <button className="blue-button_no-icon ">Add Room</button>
         </div>
-
       </div>
-    </>)
+    </>
+  );
 }
