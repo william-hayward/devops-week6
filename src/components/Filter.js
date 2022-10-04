@@ -2,6 +2,8 @@ import Slider from "rc-slider";
 
 
 import { buildings, roomTypes } from "../mocks/data";
+
+
 const Section = ({ children }) => (
   <div className="pt-3">
     <div className="border-b-3 pr-1 pl-1 pb-3 border-b-2 border-light-gray">
@@ -14,7 +16,7 @@ export default function Filter(props) {
 
 
 
-  const { capacity, onSlide, onReset, onClickType, onClickBuilding } = props;
+  const { capacity, onSlide, onReset} = props;
 
   const handleReset = () => {
     document.getElementById("form").reset();
