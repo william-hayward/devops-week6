@@ -1,6 +1,6 @@
 # Class Example
 
-This is an ongoing project that will be used to support Solent's level 6 DevOps module.
+This is an ongoing project that will be used to support Solent's level 6 DevOps module. It is a room tracking application created using Next.js.
 
 ## Getting Started
 
