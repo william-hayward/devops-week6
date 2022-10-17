@@ -15,10 +15,6 @@ export const buildings = [
     name: "Sir Christopher Cockerell",
     code: "CC",
   },
-  {
-    name: "Herbert Collins building",
-    code: "HC"
-  }
 ];
 
 export const roomTypes = [
@@ -39,44 +35,50 @@ export const roomTypes = [
 export const rooms = [
   {
     id: 1,
-    number: "HC208",
+    number: "208",
     building: "HC",
     capacity: 10,
-    type: { code: "pc", name: "PC Lab" },
+    type: {code: "pc", name: "PC Lab"},
   },
   {
     id: 2,
-    number: "HC208",
+    number: "204",
     building: "HC",
     capacity: 25,
-    type: { code: "pc", name: "PC Lab" },
+    type: {code: "pc", name: "Mac Lab"},
   },
   {
     id: 3,
-    number: "HC208",
+    number: "203",
     building: "HC",
     capacity: 15,
-    type: { code: "pc", name: "PC Lab" },
+    type: {code: "pc", name: "PC Lab"},
   },
   {
     id: 4,
-    number: "HC208",
+    number: "206",
     building: "HC",
     capacity: 25,
-    type: { code: "pc", name: "PC Lab" },
+    type: {code: "pc", name: "Mac Lab"},
   },
   {
     id: 5,
-    number: "HC208",
+    number: "202",
     building: "HC",
     capacity: 13,
-    type: { code: "pc", name: "PC Lab" },
+    type: {code: "pc", name: "PC Lab"},
   },
   {
     id: 6,
-    number: "HC208",
+    number: "201",
     building: "HC",
     capacity: 25,
-    type: { code: "pc", name: "PC Lab" },
+    type: {code: "pc", name: "Mac Lab"},
   },
+];
+
+export const lotsOfRooms = [
+  ...rooms,
+  ...rooms.map((r) => ({...r, ...{building: "RM"}})),
+  ...rooms.map((r) => ({...r, ...{building: "JM"}})),
 ];

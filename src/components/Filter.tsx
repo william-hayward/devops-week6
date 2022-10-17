@@ -13,7 +13,7 @@ interface FilterProp {
   capacity: number;
   onSlide: (n: number | number[]) => unknown;
   onReset: () => unknown;
-};
+}
 
 export default function Filter(props: FilterProp) {
   const {capacity, onSlide, onReset} = props;

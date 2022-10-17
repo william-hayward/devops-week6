@@ -40,11 +40,11 @@ export default function Home() {
       <Filter capacity={capacity} onSlide={handleSlide} onReset={handleReset} />
       <div className="min-w-full pr-20">
         <div className="max-w-[80%] mx-auto mt-11">
-
-          
           <div>
             <Link href="/create">
-              <a className="blue-button"><PlusIcon className="h-5 w-5" /> Add Room </a>
+              <a className="blue-button">
+                <PlusIcon className="h-5 w-5" /> Add Room{" "}
+              </a>
             </Link>
           </div>
           <div className="bg-white mx-auto mt-11 p-5 rounded-lg shadow-md">
