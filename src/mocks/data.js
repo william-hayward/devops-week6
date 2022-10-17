@@ -15,6 +15,10 @@ export const buildings = [
     name: "Sir Christopher Cockerell",
     code: "CC",
   },
+  {
+    name: "Herbert Collins building",
+    code: "HC"
+  }
 ];
 
 export const roomTypes = [
@@ -38,41 +42,41 @@ export const rooms = [
     number: "HC208",
     building: "HC",
     capacity: 10,
-    type: {code: "pc", name: "PC Lab"},
+    type: { code: "pc", name: "PC Lab" },
   },
   {
     id: 2,
     number: "HC208",
     building: "HC",
     capacity: 25,
-    type: {code: "pc", name: "PC Lab"},
+    type: { code: "pc", name: "PC Lab" },
   },
   {
     id: 3,
     number: "HC208",
     building: "HC",
     capacity: 15,
-    type: {code: "pc", name: "PC Lab"},
+    type: { code: "pc", name: "PC Lab" },
   },
   {
     id: 4,
     number: "HC208",
     building: "HC",
     capacity: 25,
-    type: {code: "pc", name: "PC Lab"},
+    type: { code: "pc", name: "PC Lab" },
   },
   {
     id: 5,
     number: "HC208",
     building: "HC",
     capacity: 13,
-    type: {code: "pc", name: "PC Lab"},
+    type: { code: "pc", name: "PC Lab" },
   },
   {
     id: 6,
     number: "HC208",
     building: "HC",
     capacity: 25,
-    type: {code: "pc", name: "PC Lab"},
+    type: { code: "pc", name: "PC Lab" },
   },
 ];

@@ -9,7 +9,7 @@ const Section = ({children}) => (
   </div>
 );
 
-type FilterProp = {
+interface FilterProp {
   capacity: number;
   onSlide: (n: number | number[]) => unknown;
   onReset: () => unknown;

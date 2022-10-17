@@ -5,6 +5,7 @@ import {
   XCircleIcon,
 } from "@heroicons/react/outline";
 import Head from "next/head";
+import Link from "next/link";
 import {useState} from "react";
 import Modal from "react-modal";
 import Filter from "../components/Filter";
@@ -39,10 +40,12 @@ export default function Home() {
       <Filter capacity={capacity} onSlide={handleSlide} onReset={handleReset} />
       <div className="min-w-full pr-20">
         <div className="max-w-[80%] mx-auto mt-11">
+
+          
           <div>
-            <a onClick={() => setModalIsOpen(true)} className="blue-button">
-              <PlusIcon className="h-5 w-5" /> Add Room
-            </a>
+            <Link href="/create">
+              <a className="blue-button"><PlusIcon className="h-5 w-5" /> Add Room </a>
+            </Link>
           </div>
           <div className="bg-white mx-auto mt-11 p-5 rounded-lg shadow-md">
             <table className="min-w-full">
