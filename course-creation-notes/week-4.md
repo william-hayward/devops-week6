@@ -1,5 +1,5 @@
 - `npx storybook init` - select `y`, when prompted to install the 'eslintPlugin'
-- npm  install -D @storybook/addon-postcss
+- npm install -D @storybook/addon-postcss
 - .storybook/main add code
 - .storybook/preview add code
 - `npm run storybook`
