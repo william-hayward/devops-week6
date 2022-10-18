@@ -14,15 +14,14 @@
 ## Task
 
 Defining a flexible button component - Allow an icon to be passed into the button - Allow the button to be different colors
-- src/styles/globals.css
 
+- src/styles/globals.css
 
 ## Task 2
 
 Create a flexible alert component (https://v1.tailwindcss.com/components/alerts)
 
-
-## Integration with our CI Pipeline 
+## Integration with our CI Pipeline
 
 - yarn add --dev @storybook/test-runner
 
