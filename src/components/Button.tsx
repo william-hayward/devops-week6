@@ -1,16 +1,18 @@
 export interface ButtonProps {
-  onClick: (e: React.SyntheticEvent) => unknown;
-  children: React.ReactNode;
-  variant: string;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   label: string;
+  variant: "blue" | "green" | "red";
+  icon: React.ReactNode;
 }
 
-export default function Button({onClick, label}: ButtonProps) {
+export default function Button(props: ButtonProps) {
+  const {onClick, label, variant, icon} = props;
+
   return (
     <>
-      <a onClick={onClick} className="blue-button text-center">
-        {label}
-      </a>
+      <button onClick={onClick} className={`${variant}-button`}>
+        {icon} {label}
+      </button>
     </>
   );
 }
