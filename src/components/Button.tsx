@@ -1,14 +1,15 @@
 export interface ButtonProps {
   onClick: (e: React.SyntheticEvent) => unknown;
   children: React.ReactNode;
-  color: string;
+  variant: string;
+  label: string;
 }
 
-export default function Button({onClick, children, color}: ButtonProps) {
+export default function Button({onClick, label}: ButtonProps) {
   return (
     <>
-      <a onClick={onClick} className="blue-button">
-        {children} this is {color}
+      <a onClick={onClick} className="blue-button text-center">
+        {label}
       </a>
     </>
   );

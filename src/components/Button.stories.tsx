@@ -13,5 +13,6 @@ const Template: ComponentStory<typeof Button> = (args) => (
 export const Primary = Template.bind({});
 
 Primary.args = {
-  color: "green",
+  variant: "green",
+  label: "Click Me",
 };
