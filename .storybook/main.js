@@ -18,7 +18,7 @@ module.exports = {
       options: {
         postcssLoaderOptions: {
           implementation: require("postcss"),
-          sourceMap: true
+          sourceMap: true,
         },
       },
     },

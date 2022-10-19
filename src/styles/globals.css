@@ -24,7 +24,7 @@
     @apply button  bg-green-500 hover:bg-green-400;
   }
 
-   .red-button {
+  .red-button {
     @apply button  bg-red-500 hover:bg-red-400;
   }
 
