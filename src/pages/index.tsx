@@ -91,7 +91,7 @@ export default function Home({rooms}) {
                   <ChevronLeftIcon className="h-5 w-5" />
                 </div>
                 <div className="border-r-2 p-3">1</div>
-                <div className="border-r-2 p-3">2</div>
+                <div className="border-r-2 p-3">2</div>cx
                 <div className="border-r-2 p-3">3</div>
                 <div className="border-r-2 p-3">...</div>
                 <div className="border-r-2 p-3">8</div>

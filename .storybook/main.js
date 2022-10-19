@@ -1,5 +1,7 @@
 const path = require("path");
 
+/*** https://stackoverflow.com/questions/71463309/error-tailwindcss-not-working-in-storybook */
+
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   /** Expose public folder to storybook as static */
@@ -16,6 +18,7 @@ module.exports = {
       options: {
         postcssLoaderOptions: {
           implementation: require("postcss"),
+          sourceMap: true
         },
       },
     },
