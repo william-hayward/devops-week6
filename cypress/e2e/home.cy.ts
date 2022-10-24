@@ -10,7 +10,7 @@ describe("Home Page Test", () => {
   });
 
   it("navigates to the add room form", () => {
-    cy.get("[data-cy='add-room-button'").click();
+    cy.get("[data-cy='add-room-button']").click();
   });
 });
 

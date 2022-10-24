@@ -13,7 +13,8 @@
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o docs-build",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
