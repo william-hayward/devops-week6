@@ -1,31 +1,17 @@
-import {PlusIcon, XCircleIcon} from "@heroicons/react/outline";
+import {PlusIcon} from "@heroicons/react/outline";
 import {GetServerSideProps} from "next";
 import Head from "next/head";
 import Link from "next/link";
 import {useState} from "react";
-import Modal from "react-modal";
 import dbConnect from "../../lib/dbConnect";
 import Room from "../../models/Room";
 import Filter from "../components/Filter";
-import RoomForm from "../components/RoomForm";
 
 export default function Home({rooms}) {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [capacity, setCapacity] = useState(1);
 
   const handleSlide = (n) => setCapacity(n);
   const handleReset = () => setCapacity(1);
-
-  const modalStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-    },
-  };
 
   return (
     <div className="flex">
@@ -39,7 +25,7 @@ export default function Home({rooms}) {
         <div className="max-w-[80%] mx-auto mt-11">
           <div>
             <Link href="/create">
-              <a className="blue-button" data-cy="add-room-button">
+              <a className="blue-button">
                 <PlusIcon className="h-5 w-5" /> Add Room{" "}
               </a>
             </Link>
@@ -100,19 +86,6 @@ export default function Home({rooms}) {
           </div>
         </div>
       </div>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
-        style={modalStyles}
-      >
-        <div className="flex justify-end">
-          <XCircleIcon
-            className="h-6 w-6 cursor-pointer hover:bg-slate-400 rounded"
-            onClick={() => setModalIsOpen(false)}
-          />
-        </div>
-        <RoomForm />
-      </Modal>
     </div>
   );
 }

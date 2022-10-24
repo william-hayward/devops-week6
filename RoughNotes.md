@@ -51,3 +51,8 @@ describe("home page", () => {
   })
 });
 ```
+
+- set up tests for the home page and add room
+- add room tests
+  - install formic
+  - add and test error checking
