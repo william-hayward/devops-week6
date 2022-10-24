@@ -36,6 +36,7 @@ export default function RoomForm(props: RoomFormProps) {
                 {...register("building", {required: true})}
                 type="checkbox"
                 value={b.code}
+                data-test="building-input"
                 name="building"
               ></input>
               <label className="text-sm">
@@ -46,34 +47,47 @@ export default function RoomForm(props: RoomFormProps) {
         </>
 
         <h3 className="font-bold text-red-600">
-          {errors.building && <span> A valid building is required</span>}
+          {errors.building && (
+            <span data-test="building-error">
+              {" "}
+              A valid building is required
+            </span>
+          )}
         </h3>
 
         <label className="font-semibold"> Room Number</label>
         <input
           className="border-2 rounded-md p-2"
+          data-test="number-input"
           type="text"
           placeholder="Room Number"
           {...register("number", {required: true})}
         />
         <h3 className="font-bold text-red-600">
-          {errors.number && <span> Room number is required</span>}
+          {errors.number && (
+            <span data-test="number-error"> Room number is required</span>
+          )}
         </h3>
         <label className="font-semibold"> Capacity </label>
         <input
           className="border-2 rounded-md p-2"
           type="number"
           placeholder="Capacity"
+          data-test="capacity-input"
           {...register("capacity", {required: true, min: 5, max: 50})}
         />
         <h3 className="font-bold text-red-600">
-          {errors.capacity && <span> Capacity is required</span>}
+          {errors.capacity && (
+            <span data-test="capacity-error"> Capacity is required</span>
+          )}
         </h3>
       </div>
 
       <div className="flex justify-center w-full mt-3">
         <div>
-          <button className="blue-button_no-icon">Add Room</button>
+          <button data-test="submit-button" className="blue-button_no-icon">
+            Add Room
+          </button>
         </div>
       </div>
     </form>
