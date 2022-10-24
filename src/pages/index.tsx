@@ -1,9 +1,4 @@
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  PlusIcon,
-  XCircleIcon,
-} from "@heroicons/react/outline";
+import {PlusIcon, XCircleIcon} from "@heroicons/react/outline";
 import {GetServerSideProps} from "next";
 import Head from "next/head";
 import Link from "next/link";
@@ -82,7 +77,7 @@ export default function Home({rooms}) {
                   ))}
               </tbody>
             </table>
-            <div className="mt-6 flex justify-between">
+            {/* <div className="mt-6 flex justify-between">
               <h3 className="text-sm mt-5">
                 Showing <b>1</b> to <b>10</b> of <b>97</b> Results
               </h3>
@@ -91,7 +86,7 @@ export default function Home({rooms}) {
                   <ChevronLeftIcon className="h-5 w-5" />
                 </div>
                 <div className="border-r-2 p-3">1</div>
-                <div className="border-r-2 p-3">2</div>cx
+                <div className="border-r-2 p-3">2</div>
                 <div className="border-r-2 p-3">3</div>
                 <div className="border-r-2 p-3">...</div>
                 <div className="border-r-2 p-3">8</div>
@@ -101,7 +96,7 @@ export default function Home({rooms}) {
                   <ChevronRightIcon className="h-5 w-5" />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

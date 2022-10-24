@@ -1,24 +1,13 @@
-import {ChevronRightIcon, HomeIcon} from "@heroicons/react/outline";
 import {GetServerSideProps} from "next";
 import Image from "next/image";
-import Link from "next/link";
 import dbConnect from "../../../../lib/dbConnect";
 import Room from "../../../../models/Room";
+import BreadCrumb from "../../../components/BreadCrumb";
 
 export default function index({room}) {
   return (
     <div className="max-w-[80%] mx-auto mt-11">
-      <div className="bg-white  mt-11 p-2 rounded-lg shadow-md flex">
-        <HomeIcon className="h-7 w-7" />
-        <Link href="/">
-          <a className=" cursor-pointer font-semibold  mt-1 ml-1"> Home </a>
-        </Link>
-        <ChevronRightIcon className="h-5 w-5 mt-2 ml-1" />
-        <p className="font-semibold mt-1">
-          {room.building}
-          {room.number}
-        </p>
-      </div>
+      <BreadCrumb label={room.building + room.number} />
       <div className="bg-white mt-5 p-5 rounded-lg shadow-md w-full flex">
         <div>
           <Image
