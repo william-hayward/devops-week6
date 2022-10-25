@@ -25,7 +25,11 @@ export default function Home({rooms}) {
         <div className="max-w-[80%] mx-auto mt-11">
           <div>
             <Link href="/create">
-              <a className="blue-button" data-cy="add-room-button">
+              <a
+                className="blue-button"
+                data-cy="add-room-button"
+                data-test="add-room-button"
+              >
                 <PlusIcon className="h-5 w-5" /> Add Room
               </a>
             </Link>
@@ -45,6 +49,7 @@ export default function Home({rooms}) {
                   .filter((r) => r.capacity >= capacity)
                   .map((r, i) => (
                     <tr
+                      data-test="room-item"
                       key={r.id}
                       className={(i + 1) % 2 === 0 ? "bg-gray-100" : ""}
                     >
@@ -91,7 +96,7 @@ export default function Home({rooms}) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  dbConnect();
+  await dbConnect();
   const results = await Room.find({}).lean();
   const rooms = results.map((doc) => ({
     ...doc,

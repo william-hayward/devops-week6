@@ -4,13 +4,13 @@ describe("Home Page Test", () => {
   });
 
   it("shows a table containing a list of rooms", () => {
-    cy.get("tr").contains("HC208");
-    cy.get("tr").contains("RM202");
-    cy.get("tr").should("have.length", 19);
+    cy.getByData("room-item").contains("HC208");
+    cy.getByData("room-item").contains("RM202");
+    cy.getByData("room-item").should("have.length", 18);
   });
 
   it("navigates to the add room form", () => {
-    cy.get("[data-cy='add-room-button']").click();
+    cy.getByData("add-room-button").click();
   });
 });
 

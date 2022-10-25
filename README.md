@@ -25,3 +25,5 @@ This is an ongoing project that will be used to support Solent's level 6 DevOps 
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 - Run the development server: `npm run dev`
+
+- **If you want to see the project stories**:, `npm run "storybook"`
