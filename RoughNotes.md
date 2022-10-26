@@ -56,3 +56,10 @@ describe("home page", () => {
 - add room tests
   - install formic
   - add and test error checking
+
+## Side Tutorial
+
+- Add hook form
+- Add watch
+- Update data
+- Create controller
