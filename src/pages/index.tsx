@@ -12,7 +12,7 @@ export default function Home({rooms}) {
   const [building, setBuilding] = useState([]);
   const [type, setType] = useState([]);
 
-  const handleSlide = (n) => setCapacity(n);
+  const handleCapacityChange = (n) => setCapacity(n);
   const handleBuildingChange = (b) => {
     return setBuilding(b);
   };
@@ -28,7 +28,7 @@ export default function Home({rooms}) {
       </Head>
       <Filter
         capacity={capacity}
-        onSlide={handleSlide}
+        onCapacityChange={handleCapacityChange}
         onReset={handleReset}
         onTypeChange={handleTypeChange}
         onBuildingChange={handleBuildingChange}

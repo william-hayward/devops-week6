@@ -13,14 +13,15 @@ const Section = ({children}) => (
 
 interface FilterProp {
   capacity: number;
-  onSlide: (n: number | number[]) => unknown;
+  onCapacityChange: (n: number | number[]) => unknown;
   onBuildingChange: (r: string[]) => unknown;
   onTypeChange: (r: string[]) => unknown;
   onReset: () => unknown;
 }
 
 export default function Filter(props: FilterProp) {
-  const {capacity, onSlide, onReset, onBuildingChange, onTypeChange} = props;
+  const {capacity, onCapacityChange, onReset, onBuildingChange, onTypeChange} =
+    props;
   const {register, watch, reset} = useForm();
 
   useEffect(() => {
@@ -55,6 +56,7 @@ export default function Filter(props: FilterProp) {
               <div className="pb-2">
                 <a
                   className="text-sm mt-2 text-blue cursor-pointer"
+                  data-test="clear-link"
                   onClick={handleReset}
                 >
                   Clear All
@@ -68,6 +70,7 @@ export default function Filter(props: FilterProp) {
               {buildings.map((b, i) => (
                 <div key={i} className="flex space-x-2">
                   <input
+                    data-test="building-filter"
                     type="checkbox"
                     {...register("building")}
                     value={b.code}
@@ -86,6 +89,7 @@ export default function Filter(props: FilterProp) {
               {roomTypes.map((r, i) => (
                 <div key={i} className="flex space-x-2">
                   <input
+                    data-test="room-filter"
                     type="checkbox"
                     {...register("type")}
                     value={r.code}
@@ -101,7 +105,7 @@ export default function Filter(props: FilterProp) {
             <div className="flex p-3 space-x-1">
               <div className="min-w-[95%] pt-2">
                 <Slider
-                  onChange={(n) => onSlide(n)}
+                  onChange={(n) => onCapacityChange(n)}
                   value={capacity}
                   min={1}
                   max={30}
