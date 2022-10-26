@@ -8,9 +8,15 @@ import Room from "../../models/Room";
 import Filter from "../components/Filter";
 
 export default function Home({rooms}) {
-  const [capacity, setCapacity] = useState(1);
+  const [capacity, setCapacity] = useState(0);
+  const [building, setBuilding] = useState([]);
+  const [type, setType] = useState([]);
 
   const handleSlide = (n) => setCapacity(n);
+  const handleBuildingChange = (b) => {
+    return setBuilding(b);
+  };
+  const handleTypeChange = (t) => setType(t);
   const handleReset = () => setCapacity(1);
 
   return (
@@ -20,7 +26,13 @@ export default function Home({rooms}) {
         <meta name="description" content="Home" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Filter capacity={capacity} onSlide={handleSlide} onReset={handleReset} />
+      <Filter
+        capacity={capacity}
+        onSlide={handleSlide}
+        onReset={handleReset}
+        onTypeChange={handleTypeChange}
+        onBuildingChange={handleBuildingChange}
+      />
       <div className="min-w-full pr-20">
         <div className="max-w-[80%] mx-auto mt-11">
           <div>
@@ -47,10 +59,20 @@ export default function Home({rooms}) {
               <tbody>
                 {rooms
                   .filter((r) => r.capacity >= capacity)
+                  .filter((r) => {
+                    if (!building.length) return true;
+                    return building.find((b) => b === r.building);
+                  })
+                  .filter((r) => {
+                    if (!type.length) return true;
+                    console.log(r.type.code);
+                    console.log(type);
+                    return type.find((t) => t === r.type.code);
+                  })
                   .map((r, i) => (
                     <tr
                       data-test="room-item"
-                      key={r.id}
+                      key={r._id}
                       className={(i + 1) % 2 === 0 ? "bg-gray-100" : ""}
                     >
                       <td className="p-2 text-blue rounded-l-lg">

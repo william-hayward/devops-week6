@@ -1,4 +1,6 @@
 import Slider from "rc-slider";
+import {useEffect} from "react";
+import {useForm} from "react-hook-form";
 import {buildings, roomTypes} from "../mocks/data";
 
 const Section = ({children}) => (
@@ -12,14 +14,32 @@ const Section = ({children}) => (
 interface FilterProp {
   capacity: number;
   onSlide: (n: number | number[]) => unknown;
+  onBuildingChange: (r: string[]) => unknown;
+  onTypeChange: (r: string[]) => unknown;
   onReset: () => unknown;
 }
 
 export default function Filter(props: FilterProp) {
-  const {capacity, onSlide, onReset} = props;
+  const {capacity, onSlide, onReset, onBuildingChange, onTypeChange} = props;
+  const {register, watch, reset} = useForm();
+
+  useEffect(() => {
+    const subscription = watch((value, {name}) => {
+      name === "building" && onBuildingChange(value["building"]);
+      name === "type" && onTypeChange(value["type"]);
+    });
+    return () => subscription.unsubscribe();
+  }, [watch]);
 
   const handleReset = () => {
+    reset(() => ({
+      building: [],
+      type: [],
+    }));
+
     (document.getElementById("form") as HTMLFormElement).reset();
+    onBuildingChange([]);
+    onTypeChange([]);
     onReset();
   };
 
@@ -47,7 +67,12 @@ export default function Filter(props: FilterProp) {
             <>
               {buildings.map((b, i) => (
                 <div key={i} className="flex space-x-2">
-                  <input type="checkbox" value={b.code} name="building"></input>
+                  <input
+                    type="checkbox"
+                    {...register("building")}
+                    value={b.code}
+                    name="building"
+                  ></input>
                   <label className="text-sm">
                     {b.name} ({b.code})
                   </label>
@@ -60,7 +85,12 @@ export default function Filter(props: FilterProp) {
             <>
               {roomTypes.map((r, i) => (
                 <div key={i} className="flex space-x-2">
-                  <input type="checkbox" value={r.code} name="type"></input>
+                  <input
+                    type="checkbox"
+                    {...register("type")}
+                    value={r.code}
+                    name="type"
+                  ></input>
                   <label className="text-sm"> {r.name}</label>
                 </div>
               ))}
