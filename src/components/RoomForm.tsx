@@ -1,6 +1,6 @@
 import {CloudUploadIcon} from "@heroicons/react/outline";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {buildings} from "../mocks/data";
+import {buildings, roomTypes} from "../mocks/data";
 
 export interface RoomFormProps {
   onSubmit: SubmitHandler<RoomValues>;
@@ -11,7 +11,7 @@ export interface RoomValues {
   building: string;
   capacity: number;
   notes?: string;
-  type: string;
+  type: string | {name: string; code: string};
 }
 
 export default function RoomForm(props: RoomFormProps) {
@@ -23,7 +23,19 @@ export default function RoomForm(props: RoomFormProps) {
     formState: {errors},
   } = useForm<RoomValues>();
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={handleSubmit((data) =>
+        onSubmit({
+          ...data,
+          ...{
+            type: {
+              name: roomTypes.find((t) => t.code === data.type).name,
+              code: data.type as string,
+            },
+          },
+        })
+      )}
+    >
       <div className="flex flex-col align-middle  space-y-2">
         <a className="gray-outline-button">
           <CloudUploadIcon className="h-5 w-5" /> Add Room Photos
@@ -34,7 +46,7 @@ export default function RoomForm(props: RoomFormProps) {
             <div key={i} className="flex space-x-2">
               <input
                 {...register("building", {required: true})}
-                type="checkbox"
+                type="radio"
                 value={b.code}
                 data-test="building-input"
                 name="building"
@@ -46,13 +58,24 @@ export default function RoomForm(props: RoomFormProps) {
           ))}
         </>
 
+        <label className="font-semibold"> Room Type</label>
+        <>
+          {roomTypes.map((b, i) => (
+            <div key={i} className="flex space-x-2">
+              <input
+                {...register("type", {required: true})}
+                type="radio"
+                value={b.code}
+                data-test="room-input"
+                name="type"
+              ></input>
+              <label className="text-sm">{b.name}</label>
+            </div>
+          ))}
+        </>
+
         <h3 className="font-bold text-red-600">
-          {errors.building && (
-            <span data-test="building-error">
-              {" "}
-              A valid building is required
-            </span>
-          )}
+          {errors.building && <span data-test="building-error"></span>}
         </h3>
 
         <label className="font-semibold"> Room Number</label>

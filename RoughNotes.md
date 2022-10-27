@@ -59,7 +59,13 @@ describe("home page", () => {
 
 ## Side Tutorial
 
+**Updating filter**
+
 - Add hook form
 - Add watch
 - Update data
-- Create controller
+- Create controller (not needed)
+- Create API
+- Update Model
+- Update Missing Form
+- Move Data Across
