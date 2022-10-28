@@ -97,11 +97,18 @@ export default function RoomForm(props: RoomFormProps) {
           type="number"
           placeholder="Capacity"
           data-test="capacity-input"
-          {...register("capacity", {required: true, min: 5, max: 50})}
+          {...register("capacity", {required: true, min: 5, max: 100})}
         />
         <h3 className="font-bold text-red-600">
-          {errors.capacity && (
-            <span data-test="capacity-error"> Capacity is required</span>
+          {errors.capacity?.type === "required" && (
+            <span data-test="capacity-error">Capacity is required</span>
+          )}
+
+          {(errors.capacity?.type === "min" ||
+            errors.capacity?.type === "max") && (
+            <span data-test="capacity-error">
+              Capacity must be between 5 and 100{" "}
+            </span>
           )}
         </h3>
       </div>
