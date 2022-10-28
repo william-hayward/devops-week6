@@ -1,9 +1,10 @@
 import {CloudUploadIcon} from "@heroicons/react/outline";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {buildings, roomTypes} from "../mocks/data";
-
+import {SpinnerCircular} from "spinners-react";
+import {buildings, roomTypes} from "../data/";
 export interface RoomFormProps {
   onSubmit: SubmitHandler<RoomValues>;
+  isLoading?: boolean;
 }
 
 export interface RoomValues {
@@ -15,7 +16,7 @@ export interface RoomValues {
 }
 
 export default function RoomForm(props: RoomFormProps) {
-  const {onSubmit} = props;
+  const {onSubmit, isLoading} = props;
 
   const {
     register,
@@ -107,8 +108,12 @@ export default function RoomForm(props: RoomFormProps) {
       </div>
 
       <div className="flex justify-center w-full mt-3">
-        <div>
-          <button data-test="submit-button" className="blue-button_no-icon">
+        <div className="flex">
+          <button
+            data-test="submit-button"
+            className={`blue-button_no-icon flex ${isLoading && "p-0"}`}
+          >
+            {isLoading && <SpinnerCircular className="w-6 h-6 mt-1" />}
             Add Room
           </button>
         </div>
