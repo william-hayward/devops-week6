@@ -46,6 +46,7 @@ export default function RoomForm(props: RoomFormProps) {
           {buildings.map((b, i) => (
             <div key={i} className="flex space-x-2">
               <input
+                disabled={isLoading}
                 {...register("building", {required: true})}
                 type="radio"
                 value={b.code}
@@ -58,12 +59,18 @@ export default function RoomForm(props: RoomFormProps) {
             </div>
           ))}
         </>
+        <h3 className="font-bold text-red-600">
+          {errors.building && (
+            <span data-test="building-error"> Building is required</span>
+          )}
+        </h3>
 
         <label className="font-semibold"> Room Type</label>
         <>
           {roomTypes.map((b, i) => (
             <div key={i} className="flex space-x-2">
               <input
+                disabled={isLoading}
                 {...register("type", {required: true})}
                 type="radio"
                 value={b.code}
@@ -76,11 +83,14 @@ export default function RoomForm(props: RoomFormProps) {
         </>
 
         <h3 className="font-bold text-red-600">
-          {errors.building && <span data-test="building-error"></span>}
+          {errors.type && (
+            <span data-test="building-error"> Room type is required</span>
+          )}
         </h3>
 
         <label className="font-semibold"> Room Number</label>
         <input
+          disabled={isLoading}
           className="border-2 rounded-md p-2"
           data-test="number-input"
           type="text"
@@ -94,6 +104,7 @@ export default function RoomForm(props: RoomFormProps) {
         </h3>
         <label className="font-semibold"> Capacity </label>
         <input
+          disabled={isLoading}
           className="border-2 rounded-md p-2"
           type="number"
           placeholder="Capacity"
@@ -108,7 +119,7 @@ export default function RoomForm(props: RoomFormProps) {
           {(errors.capacity?.type === "min" ||
             errors.capacity?.type === "max") && (
             <span data-test="capacity-error">
-              Capacity must be between 5 and 100{" "}
+              Capacity must be between 5 and 100
             </span>
           )}
         </h3>
@@ -117,6 +128,7 @@ export default function RoomForm(props: RoomFormProps) {
       <div className="flex justify-center w-full mt-3">
         <div className="flex">
           <button
+            disabled={isLoading}
             data-test="submit-button"
             className={`blue-button_no-icon flex ${isLoading && "p-0"}`}
           >
