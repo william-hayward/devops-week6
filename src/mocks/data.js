@@ -37,42 +37,42 @@ export const rooms = [
     number: "208",
     building: "HC",
     capacity: 10,
-    type: {code: "pc", name: "PC Lab"},
+    type: { code: "pc", name: "PC Lab" },
   },
   {
     number: "204",
     building: "HC",
     capacity: 25,
-    type: {code: "pc", name: "Mac Lab"},
+    type: { code: "mac", name: "Mac Lab" },
   },
   {
     number: "203",
     building: "HC",
     capacity: 15,
-    type: {code: "pc", name: "PC Lab"},
+    type: { code: "pc", name: "PC Lab" },
   },
   {
     number: "206",
     building: "HC",
     capacity: 25,
-    type: {code: "pc", name: "Mac Lab"},
+    type: { code: "mac", name: "Mac Lab" },
   },
   {
     number: "202",
     building: "HC",
     capacity: 13,
-    type: {code: "pc", name: "PC Lab"},
+    type: { code: "pc", name: "PC Lab" },
   },
   {
     number: "201",
     building: "HC",
     capacity: 25,
-    type: {code: "pc", name: "Mac Lab"},
+    type: { code: "mac", name: "Mac Lab" },
   },
 ];
 
 export const lotsOfRooms = [
   ...rooms,
-  ...rooms.map((r) => ({...r, ...{building: "RM"}})),
-  ...rooms.map((r) => ({...r, ...{building: "JM"}})),
+  ...rooms.map((r) => ({ ...r, ...{ building: "RM" } })),
+  ...rooms.map((r) => ({ ...r, ...{ building: "JM" } })),
 ];
