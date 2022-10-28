@@ -69,3 +69,4 @@ describe("home page", () => {
 - Update Model
 - Update Missing Form
 - Move Data Across
+- Install react query
