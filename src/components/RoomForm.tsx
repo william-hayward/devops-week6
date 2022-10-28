@@ -1,6 +1,6 @@
 import {CloudUploadIcon} from "@heroicons/react/outline";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {buildings} from "../mocks/data";
+import {buildings, roomTypes} from "../data";
 
 export interface RoomFormProps {
   onSubmit: SubmitHandler<RoomValues>;
@@ -48,12 +48,25 @@ export default function RoomForm(props: RoomFormProps) {
 
         <h3 className="font-bold text-red-600">
           {errors.building && (
-            <span data-test="building-error">
-              {" "}
-              A valid building is required
-            </span>
+            <span data-test="building-error">A valid building is required</span>
           )}
         </h3>
+
+        <label className="font-semibold"> Room Type</label>
+        <>
+          {roomTypes.map((b, i) => (
+            <div key={i} className="flex space-x-2">
+              <input
+                {...register("type", {required: true})}
+                type="radio"
+                value={b.code}
+                data-test="room-input"
+                name="type"
+              ></input>
+              <label className="text-sm">{b.name}</label>
+            </div>
+          ))}
+        </>
 
         <label className="font-semibold"> Room Number</label>
         <input

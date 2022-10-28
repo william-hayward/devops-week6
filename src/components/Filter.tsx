@@ -1,5 +1,5 @@
 import Slider from "rc-slider";
-import {buildings, roomTypes} from "../mocks/data";
+import {buildings, roomTypes} from "../data/";
 
 const Section = ({children}) => (
   <div className="pt-3">
