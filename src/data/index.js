@@ -15,6 +15,10 @@ export const buildings = [
     name: "Sir Christopher Cockerell",
     code: "CC",
   },
+  {
+    name: "Herbert Collins",
+    code: "HC",
+  },
 ];
 
 export const roomTypes = [

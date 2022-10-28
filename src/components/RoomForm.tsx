@@ -1,10 +1,15 @@
 import {CloudUploadIcon} from "@heroicons/react/outline";
+import {useEffect} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {SpinnerCircular} from "spinners-react";
 import {buildings, roomTypes} from "../data/";
+
 export interface RoomFormProps {
   onSubmit: SubmitHandler<RoomValues>;
   isLoading?: boolean;
+  triggerReset?: boolean;
+  values?: DatabaseRoomValues;
+  label?: string;
 }
 
 export interface RoomValues {
@@ -15,14 +20,27 @@ export interface RoomValues {
   type: string | {name: string; code: string};
 }
 
-export default function RoomForm(props: RoomFormProps) {
-  const {onSubmit, isLoading} = props;
+export interface DatabaseRoomValues extends RoomValues {
+  _id?: string;
+  type: {name: string; code: string};
+}
 
+export default function RoomForm(props: RoomFormProps) {
+  const {onSubmit, isLoading, triggerReset, values, label} = props;
+  console.log(values);
   const {
     register,
     handleSubmit,
     formState: {errors},
-  } = useForm<RoomValues>();
+    reset,
+  } = useForm<RoomValues>({
+    defaultValues: {...values, ...{type: values.type.code}},
+  });
+
+  useEffect(() => {
+    triggerReset && reset();
+  }, [triggerReset, reset]);
+
   return (
     <form
       onSubmit={handleSubmit((data) =>
@@ -133,7 +151,7 @@ export default function RoomForm(props: RoomFormProps) {
             className={`blue-button_no-icon flex ${isLoading && "p-0"}`}
           >
             {isLoading && <SpinnerCircular className="w-6 h-6 mt-1" />}
-            Add Room
+            {label || "Add Room"}
           </button>
         </div>
       </div>

@@ -61,12 +61,25 @@ describe("home page", () => {
 
 **Updating filter**
 
-- Add hook form
+- Add hook form to filter
 - Add watch
 - Update data
 - Create controller (not needed)
 - Create API
 - Update Model
-- Update Missing Form
+
 - Move Data Across
 - Install react query
+- Create a mutation
+- Create an error success / message
+- Submit
+- Create a delete and edit icon
+- Add delete
+- Add edit
+- Create state for rooms
+- Add delete
+
+**Tutorial set up**
+
+- Update Missing Form (add before the tutorial has started)
+- Add updated alert
