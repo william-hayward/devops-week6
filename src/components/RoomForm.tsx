@@ -27,14 +27,13 @@ export interface DatabaseRoomValues extends RoomValues {
 
 export default function RoomForm(props: RoomFormProps) {
   const {onSubmit, isLoading, triggerReset, values, label} = props;
-  console.log(values);
   const {
     register,
     handleSubmit,
     formState: {errors},
     reset,
   } = useForm<RoomValues>({
-    defaultValues: {...values, ...{type: values.type.code}},
+    defaultValues: {...values, ...{type: values ? values.type.code : ""}},
   });
 
   useEffect(() => {
