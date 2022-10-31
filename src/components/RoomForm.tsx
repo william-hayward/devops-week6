@@ -91,7 +91,7 @@ export default function RoomForm(props: RoomFormProps) {
                 {...register("type", {required: true})}
                 type="radio"
                 value={b.code}
-                data-test="room-input"
+                data-test="type-input"
                 name="type"
               ></input>
               <label className="text-sm">{b.name}</label>
@@ -101,7 +101,7 @@ export default function RoomForm(props: RoomFormProps) {
 
         <h3 className="font-bold text-red-600">
           {errors.type && (
-            <span data-test="building-error"> Room type is required</span>
+            <span data-test="type-error"> Room type is required</span>
           )}
         </h3>
 

@@ -9,11 +9,13 @@ describe("Create Room Test", () => {
     cy.getByData("building-error").should("not.exist");
     cy.getByData("number-error").should("not.exist");
     cy.getByData("capacity-error").should("not.exist");
+    cy.getByData("type-error").should("not.exist");
 
     cy.getByData("submit-button").click();
     cy.getByData("building-error").should("exist");
     cy.getByData("number-error").should("exist");
     cy.getByData("capacity-error").should("exist");
+    cy.getByData("type-error").should("exist");
   });
 
   it("removes errors when correct values are entered", () => {
@@ -24,6 +26,7 @@ describe("Create Room Test", () => {
     cy.getByData("number-error").should("not.exist");
     cy.getByData("capacity-input").type("50");
     cy.getByData("capacity-error").should("not.exist");
+    cy.getByData("type-input").eq(0).click();
   });
 });
 

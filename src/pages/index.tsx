@@ -50,7 +50,7 @@ export default function Home({rooms}) {
                   .map((r, i) => (
                     <tr
                       data-test="room-item"
-                      key={r.id}
+                      key={r._id}
                       className={(i + 1) % 2 === 0 ? "bg-gray-100" : ""}
                     >
                       <td className="p-2 text-blue rounded-l-lg">
