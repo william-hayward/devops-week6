@@ -12,6 +12,21 @@ describe("Home Page Test", () => {
   it("navigates to the add room form", () => {
     cy.getByData("add-room-button").click();
   });
+
+  it("filters rooms by building", () => {
+    cy.getByData("building-filter").check("RM");
+    cy.getByData("room-item").contains(/RM*/);
+    cy.getByData("room-item").should("not.contain", /JM*/);
+    cy.getByData("room-item").should("not.contain", /CC*/);
+
+    cy.getByData("building-filter").check("CC");
+    cy.getByData("room-item").contains(/RM*/);
+    cy.getByData("room-item").contains(/CC*/);
+
+    // check that the form can be cleared
+    cy.getByData("clear-link").click();
+    cy.getByData("room-item").should("have.length", 18);
+  });
 });
 
 export {}; // this is to fix typescript complaint

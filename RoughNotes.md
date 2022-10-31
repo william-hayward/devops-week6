@@ -56,3 +56,30 @@ describe("home page", () => {
 - add room tests
   - install formic
   - add and test error checking
+
+## Side Tutorial
+
+**Updating filter**
+
+- Add hook form to filter
+- Add watch
+- Update data
+- Create controller (not needed)
+- Create API
+- Update Model
+
+- Move Data Across
+- Install react query
+- Create a mutation
+- Create an error success / message
+- Submit
+- Create a delete and edit icon
+- Add delete
+- Add edit
+- Create state for rooms
+- Add delete
+
+**Tutorial set up**
+
+- Update Missing Form (add before the tutorial has started)
+- Add updated alert
