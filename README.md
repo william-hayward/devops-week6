@@ -22,8 +22,12 @@ This is an ongoing project that will be used to support Solent's level 6 DevOps 
 
   - Set your `MONGODB_URI` with the the MongoDB connection string.
 
-- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
 - Run the development server: `npm run dev`
+
+- To seed the database, visit http://localhost:3000/api/utility
+
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result, there should be 18 rooms in your rooms' table.
+
+- To your application is working run the tests: `npm run cypress:run`
 
 - **If you want to see the project stories**:, `npm run "storybook"`
