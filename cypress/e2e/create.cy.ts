@@ -1,6 +1,6 @@
 describe("Create Room Test", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/create");
+    cy.visit("/create");
   });
 
   it("prevents a in-valid from from being submitted", () => {

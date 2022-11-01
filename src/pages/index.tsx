@@ -104,10 +104,12 @@ export default function Home({rooms}) {
                       <td className="rounded-r-lg">{r.type.name}</td>
                       <td className="flex">
                         <PencilIcon
+                          data-test="edit-icon"
                           className="h-6 w-6 mt-2 cursor-pointer"
                           onClick={() => router.push(`/rooms/${r._id}/edit/`)}
                         />
                         <TrashIcon
+                          data-test="delete-icon"
                           className="h-6 w-6 mt-2 ml-6 cursor-pointer"
                           onClick={() => mutate(r._id)}
                         />
